@@ -63,7 +63,7 @@ body {
     border-style: solid;
     box-sizing: content-box;
     background-image: url("../img/waku.png");
-    background-size: cover;
+    background-size: 100% 100%;
     /* object-fit: unset; */
 }
 
