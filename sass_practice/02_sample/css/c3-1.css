@@ -1,0 +1,25 @@
+#main section {
+  margin-bottom: 50px;
+}
+
+#main section h1 {
+  font-size: 140%;
+}
+
+#main section p, #main section ul {
+  margin-bottom: 1.5em;
+}
+
+#main section p.notes {
+  color: blue;
+}
+
+@media screen and (max-width: 640px) {
+  #main section p.notes {
+    color: green;
+  }
+}
+
+.bg_color {
+  background-color: #d2ffff;
+}

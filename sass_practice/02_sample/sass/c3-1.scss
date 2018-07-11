@@ -1,0 +1,25 @@
+$BG_COLOR: rgb(210, 255, 255);
+
+#main {
+    section {
+        margin-bottom: 50px;
+        h1 {
+            font-size: 140%;
+        }
+        p, ul {
+            margin-bottom: 1.5em;
+        }
+        p.notes {
+            color: blue;
+            @media screen and (max-width: 640px) {
+                color: green;
+            }
+        }
+    }
+}
+
+.bg_color {
+    background: {
+        color: $BG_COLOR;
+    }
+}
