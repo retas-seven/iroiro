@@ -23,3 +23,13 @@
 .bg_color {
   background-color: #d2ffff;
 }
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+  color: red;
+  font-weight: 600;
+}

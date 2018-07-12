@@ -23,3 +23,14 @@ $BG_COLOR: rgb(210, 255, 255);
         color: $BG_COLOR;
     }
 }
+
+a {
+    text-decoration: none;
+    &:hover {
+        text-decoration: none;
+        color: red;
+        font-weight: 600;
+    }
+}
+
+
