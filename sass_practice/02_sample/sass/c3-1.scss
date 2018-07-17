@@ -1,4 +1,5 @@
 $BG_COLOR: rgb(210, 255, 255);
+$IMG_PATH: '../img/';
 
 #main {
     section {
@@ -20,6 +21,11 @@ $BG_COLOR: rgb(210, 255, 255);
 
 .bg_color {
     background: {
+        image: url(#{$IMG_PATH}bg.png);
+        size: cover;
+        position: center center;
+        repeat: no-repeat;
+        attachment: fixed;
         color: $BG_COLOR;
     }
 }
