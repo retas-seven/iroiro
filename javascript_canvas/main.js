@@ -2,14 +2,10 @@
 const WIDTH = 640;
 /** 画面高さ */
 const HEIGHT = 480;
-/** 画面（前面CANVAS） */
-var frontCanvas =  document.getElementById("frontCanvas");
-/** 画面（背面CANVAS） */
-var backCanvas =  document.getElementById("backCanvas");
 /** コンテキスト（前面CANVAS） */
-var front = frontCanvas.getContext('2d');
+var front;
 /** コンテキスト（背面CANVAS） */
-var back = backCanvas.getContext('2d');
+var back;
 /** 画面（各場面） */
 var state;
 
@@ -17,6 +13,11 @@ var state;
  * 初期処理
  */
 function init() {
+    let frontCanvas =  document.getElementById("frontCanvas");
+    let backCanvas =  document.getElementById("backCanvas");
+    front = frontCanvas.getContext('2d');
+    back = backCanvas.getContext('2d');
+
     frontCanvas.width = WIDTH;
     frontCanvas.height = HEIGHT;
     backCanvas.width = WIDTH;

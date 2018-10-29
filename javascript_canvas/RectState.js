@@ -57,7 +57,7 @@ class RectState {
             }
 
             // 既定の回数バウンドしたら画面を切り替える
-            if (5 == o.boundCnt) {
+            if (3 == o.boundCnt) {
                 state = new CircleState();
             }
         }

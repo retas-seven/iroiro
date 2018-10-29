@@ -9,8 +9,8 @@ class CircleState {
     constructor() {
         /** 描画する円を作成 */
         this.balls = [];
-        this.balls.push({x: 150, y: 150, dx: 3, dy: 1, radius: 50, color: "rgb(0, 255, 128)", boundCnt: 0});
-        this.balls.push({x: 350, y: 350, dx: -1, dy: -3, radius: 50, color: "rgb(0, 200, 255)", boundCnt: 0});
+        this.balls.push({x: 150, y: 150, dx: 6, dy: 2, radius: 50, color: "rgb(0, 255, 128)", boundCnt: 0});
+        this.balls.push({x: 350, y: 350, dx: -3, dy: -7, radius: 50, color: "rgb(0, 200, 255)", boundCnt: 0});
 
         // 背景色を設定
         back.fillStyle = 'rgb(100, 100, 0)';
