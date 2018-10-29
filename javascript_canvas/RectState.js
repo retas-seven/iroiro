@@ -7,10 +7,14 @@ class RectState {
      * 初期化
      */
     constructor() {
-        /** 描画する四角 */
+        /** 描画する四角を作成 */
         this.rects = [];
         this.rects.push({x: 150, y: 150, dx: 3, dy: 1, width: 100, height: 100, color: "rgb(255, 255, 128)", boundCnt: 0});
         this.rects.push({x: 350, y: 350, dx: -1, dy: -3, width: 100, height: 100, color: "rgb(128, 200, 255)", boundCnt: 0});
+
+        // 背景色を設定
+        back.fillStyle = 'rgb(0, 100, 100)';
+        back.fillRect(0, 0, WIDTH, HEIGHT);
     }
 
     /**
@@ -18,10 +22,10 @@ class RectState {
      */
     draw() {
         for (let o of this.rects) {
-            context.beginPath();
-            context.fillStyle = o.color;
-            context.fillRect(o.x, o.y, o.width, o.height);
-            context.fill();
+            front.beginPath();
+            front.fillStyle = o.color;
+            front.fillRect(o.x, o.y, o.width, o.height);
+            front.fill();
         }
     }
 
