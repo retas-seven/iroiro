@@ -1,12 +1,16 @@
 /**
  * サンプル画面（円）
  */
-class CircleState {
+class CircleState extends StateBase {
+    constructor() {
+        super();
+        this.init();
+    }
 
     /**
      * 初期化
      */
-    constructor() {
+    init () {
         /** 描画する円を作成 */
         this.balls = [];
         this.balls.push({x: 150, y: 150, dx: 6, dy: 2, radius: 50, color: "rgb(0, 255, 128)", boundCnt: 0});

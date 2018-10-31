@@ -4,6 +4,8 @@ const WIDTH = 640;
 const HEIGHT = 480;
 /** １フレームの描画に使用する時間（ミリ秒） */
 const FRAME_MSEC = 1000 / 45;
+/** コンテキスト（システム用CANVAS） */
+var system;
 /** コンテキスト（前面CANVAS） */
 var front;
 /** コンテキスト（背面CANVAS） */
@@ -19,11 +21,15 @@ var loopEndMsc;
  * 初期処理
  */
 function init() {
-    let frontCanvas =  document.getElementById("frontCanvas");
-    let backCanvas =  document.getElementById("backCanvas");
+    let systemCanvas = document.getElementById("systemCanvas");
+    let frontCanvas = document.getElementById("frontCanvas");
+    let backCanvas = document.getElementById("backCanvas");
+    system = systemCanvas.getContext('2d');
     front = frontCanvas.getContext('2d');
     back = backCanvas.getContext('2d');
 
+    systemCanvas.width = WIDTH;
+    systemCanvas.height = HEIGHT;
     frontCanvas.width = WIDTH;
     frontCanvas.height = HEIGHT;
     backCanvas.width = WIDTH;

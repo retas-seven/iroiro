@@ -24,9 +24,11 @@
             outline-color: gray;
             */
         }
+        .systemCanvas {
+            z-index: 30;
+        }
         .frontCanvas {
             z-index: 20;
-
         }
         .backCanvas {
             z-index: 10;
@@ -34,9 +36,11 @@
     </style>
     <body>
         <div class="row01">
+            <canvas id="systemCanvas" class="canvas systemCanvas"></canvas>
             <canvas id="backCanvas" class="canvas backCanvas"></canvas>
             <canvas id="frontCanvas" class="canvas frontCanvas"></canvas>
         </div>
+        <script src="StateBase.js"></script>
         <script src="CircleState.js"></script>
         <script src="RectState.js"></script>
         <script src="main.js"></script>

@@ -1,12 +1,16 @@
 /**
  * サンプル画面（四角）
  */
-class RectState {
+class RectState extends StateBase {
+    constructor() {
+        super();
+        this.init();
+    }
 
     /**
      * 初期化
      */
-    constructor() {
+    init () {
         /** 描画する四角を作成 */
         this.rects = [];
         this.rects.push({x: 150, y: 150, dx: 3, dy: 1, width: 100, height: 100, color: "rgb(255, 255, 128)", boundCnt: 0});
