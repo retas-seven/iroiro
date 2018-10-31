@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <input type="button" id="btn_test" value="TEST" />
+        <script src="test.js"></script>
+        <script>
+            window.onload = () => {
+                document.getElementById("btn_test").onclick = function() {
+                    console.log("start");
+                    myTest();
+                }
+            }
+        </script>
+    </body>
+</html>
