@@ -4,13 +4,15 @@
 class CircleState extends StateBase {
     constructor() {
         super();
-        this.init();
+        //this.init();
     }
 
     /**
      * 初期化
      */
     init () {
+        console.log("CircleState.init");
+        
         /** 描画する円を作成 */
         this.balls = [];
         this.balls.push({x: 150, y: 150, dx: 6, dy: 2, radius: 50, color: "rgb(0, 255, 128)", boundCnt: 0});
@@ -61,8 +63,9 @@ class CircleState extends StateBase {
             }
 
             // 既定の回数バウンドしたら画面を切り替える
-            if (5 == o.boundCnt) {
-                state = new RectState();
+            if (3 == o.boundCnt) {
+                console.log("CircleState:State変更");
+                this.changeState("RectState");
             }
         }
     }

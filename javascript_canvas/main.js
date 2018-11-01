@@ -3,7 +3,7 @@ const WIDTH = 640;
 /** 画面高さ */
 const HEIGHT = 480;
 /** １フレームの描画に使用する時間（ミリ秒） */
-const FRAME_MSEC = 1000 / 45;
+const FRAME_MSEC = 1000 / 60;
 /** コンテキスト（システム用CANVAS） */
 var system;
 /** コンテキスト（前面CANVAS） */
@@ -16,6 +16,11 @@ var state;
 var loopStartMsc;
 /** 描画タイミング調整用の変数：ループ終了時の時間（ミリ秒） */
 var loopEndMsc;
+
+var isSystemBlack = false;
+var systemAlpha = 0;
+var isSystemBlackClear = false;
+var nextStateName;
 
 /**
  * 初期処理
@@ -37,6 +42,7 @@ function init() {
 
     // 初期画面を設定
     state = new CircleState();
+    state.init();
 }
 
 /**
@@ -46,6 +52,31 @@ function mainLoop() {
     loopStartMsc = Date.now();
     
     if (FRAME_MSEC < (loopStartMsc - loopEndMsc)) {
+
+        if (isSystemBlack) {
+            systemAlpha += 0.2;
+            system.globalAlpha = systemAlpha;
+            system.fillRect(0, 0, WIDTH, HEIGHT);
+            if (1.0 <= systemAlpha) {
+                var tmpState = eval("new " + nextStateName + "();");
+                tmpState.init();
+                state = tmpState;
+                isSystemBlack = false;
+                isSystemBlackClear = true;
+                systemAlpha = 1.0;
+            }
+        }
+        else if (isSystemBlackClear) {
+            systemAlpha -= 0.2;
+            system.globalAlpha = systemAlpha;
+            system.clearRect(0, 0, WIDTH, HEIGHT);
+            system.fillRect(0, 0, WIDTH, HEIGHT);
+            if (systemAlpha <= 0.0) {
+                isSystemBlackClear = false;
+                system.clearRect(0, 0, WIDTH, HEIGHT);
+            }
+        }
+
         // 画面を初期化
         front.clearRect(0, 0, WIDTH, HEIGHT);
         // 描画

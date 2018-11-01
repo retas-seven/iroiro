@@ -4,13 +4,15 @@
 class RectState extends StateBase {
     constructor() {
         super();
-        this.init();
+        //this.init();
     }
 
     /**
      * 初期化
      */
     init () {
+        console.log("RectState.init");
+
         /** 描画する四角を作成 */
         this.rects = [];
         this.rects.push({x: 150, y: 150, dx: 3, dy: 1, width: 100, height: 100, color: "rgb(255, 255, 128)", boundCnt: 0});
@@ -61,8 +63,9 @@ class RectState extends StateBase {
             }
 
             // 既定の回数バウンドしたら画面を切り替える
-            if (3 == o.boundCnt) {
-                state = new CircleState();
+            if (2 == o.boundCnt) {
+                console.log("RectState:State変更");
+                this.changeState("CircleState");
             }
         }
     }
