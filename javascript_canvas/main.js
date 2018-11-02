@@ -16,11 +16,19 @@ var state;
 var loopStartMsc;
 /** 描画タイミング調整用の変数：ループ終了時の時間（ミリ秒） */
 var loopEndMsc;
+/** マウスイベントハンドラ */
+var mouse = new Mouse();
 
 var isSystemBlack = false;
 var systemAlpha = 0;
 var isSystemBlackClear = false;
 var nextStateName;
+
+function onclickHandler(e) {
+    var x = e.clientX;
+    var y = e.clientY;
+    console.log(x +", "+ y);
+}
 
 /**
  * 初期処理
@@ -33,12 +41,16 @@ function init() {
     front = frontCanvas.getContext('2d');
     back = backCanvas.getContext('2d');
 
+    // 画面の大きさを設定
     systemCanvas.width = WIDTH;
     systemCanvas.height = HEIGHT;
     frontCanvas.width = WIDTH;
     frontCanvas.height = HEIGHT;
     backCanvas.width = WIDTH;
     backCanvas.height = HEIGHT;
+
+    // マウスイベントハンドラ設定
+    systemCanvas.addEventListener('click', mouse.onclick, false);
 
     // 初期画面を設定
     state = new CircleState();
