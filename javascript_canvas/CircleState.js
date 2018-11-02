@@ -61,12 +61,23 @@ class CircleState extends StateBase {
                 o.dy = -o.dy;
                 o.boundCnt++;
             }
-
+            
             // 既定の回数バウンドしたら画面を切り替える
             if (3 == o.boundCnt) {
-                console.log("CircleState:State変更");
+                // console.log("CircleState:State変更");
                 this.changeState("RectState");
             }
+        }
+
+        if (mouse.isLeft) {
+            console.log("RectState　左クリック");
+            this.balls[0].dx = -this.balls[0].dx;
+            this.balls[0].dy = -this.balls[0].dy;
+        }
+        if (mouse.isRight) {
+            console.log("RectState　右クリック");
+            this.balls[1].dx = -this.balls[1].dx;
+            this.balls[1].dy = -this.balls[1].dy;
         }
     }
 }

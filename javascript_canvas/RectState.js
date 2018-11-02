@@ -64,9 +64,21 @@ class RectState extends StateBase {
 
             // 既定の回数バウンドしたら画面を切り替える
             if (2 == o.boundCnt) {
-                console.log("RectState:State変更");
+                // console.log("RectState:State変更");
                 this.changeState("CircleState");
             }
         }
+
+        if (mouse.isLeft) {
+            console.log("RectState　左クリック");
+            this.rects[0].dx = -this.rects[0].dx;
+            this.rects[0].dy = -this.rects[0].dy;
+        }
+        if (mouse.isRight) {
+            console.log("RectState　右クリック");
+            this.rects[1].dx = -this.rects[1].dx;
+            this.rects[1].dy = -this.rects[1].dy;
+        }
+
     }
 }
