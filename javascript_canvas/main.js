@@ -24,12 +24,6 @@ var systemAlpha = 0;
 var isSystemBlackClear = false;
 var nextStateName;
 
-function onclickHandler(e) {
-    var x = e.clientX;
-    var y = e.clientY;
-    console.log(x +", "+ y);
-}
-
 /**
  * 初期処理
  */
@@ -51,8 +45,8 @@ function init() {
 
     // マウスイベントハンドラ設定
     mouse = new Mouse();
-    systemCanvas.addEventListener("click", mouse.mouseClick, false);
-    systemCanvas.addEventListener("contextmenu", mouse.mouseClick, false);
+    systemCanvas.addEventListener("click", mouse.leftClick, false);
+    systemCanvas.addEventListener("contextmenu", mouse.rightClick, false);
 
     // 初期画面を設定
     // _state = new CircleState();
