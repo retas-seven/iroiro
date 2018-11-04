@@ -14,9 +14,9 @@ class RectState extends StateBase {
         console.log("RectState.init");
 
         /** 描画する四角を作成 */
-        this.rects = [];
-        this.rects.push({x: 150, y: 150, dx: 3, dy: 1, width: 100, height: 100, color: "rgb(255, 255, 128)", boundCnt: 0});
-        this.rects.push({x: 350, y: 350, dx: -1, dy: -3, width: 100, height: 100, color: "rgb(128, 200, 255)", boundCnt: 0});
+        this._rects = [];
+        this._rects.push({x: 150, y: 150, dx: 3, dy: 1, width: 100, height: 100, color: "rgb(255, 255, 128)", boundCnt: 0});
+        this._rects.push({x: 350, y: 350, dx: -1, dy: -3, width: 100, height: 100, color: "rgb(128, 200, 255)", boundCnt: 0});
 
         // 背景色を設定
         back.fillStyle = 'rgb(0, 100, 100)';
@@ -27,7 +27,7 @@ class RectState extends StateBase {
      * 描画
      */
     draw() {
-        for (let o of this.rects) {
+        for (let o of this._rects) {
             front.beginPath();
             front.fillStyle = o.color;
             front.fillRect(o.x, o.y, o.width, o.height);
@@ -39,7 +39,7 @@ class RectState extends StateBase {
      * 状態を更新
      */
     run() {
-        for(let o of this.rects) {
+        for(let o of this._rects) {
             o.x = o.x + o.dx;
             o.y = o.y + o.dy;
 
@@ -71,13 +71,13 @@ class RectState extends StateBase {
 
         if (mouse.isLeft) {
             console.log("RectState　左クリック");
-            this.rects[0].dx = -this.rects[0].dx;
-            this.rects[0].dy = -this.rects[0].dy;
+            this._rects[0].dx = -this._rects[0].dx;
+            this._rects[0].dy = -this._rects[0].dy;
         }
         if (mouse.isRight) {
             console.log("RectState　右クリック");
-            this.rects[1].dx = -this.rects[1].dx;
-            this.rects[1].dy = -this.rects[1].dy;
+            this._rects[1].dx = -this._rects[1].dx;
+            this._rects[1].dy = -this._rects[1].dy;
         }
 
     }

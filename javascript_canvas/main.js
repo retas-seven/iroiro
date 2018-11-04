@@ -10,14 +10,14 @@ var system;
 var front;
 /** コンテキスト（背面CANVAS） */
 var back;
-/** 画面（各場面） */
-var state;
-/** 描画タイミング調整用の変数：ループ開始時の時間（ミリ秒） */
-var loopStartMsc;
-/** 描画タイミング調整用の変数：ループ終了時の時間（ミリ秒） */
-var loopEndMsc;
 /** マウスイベントハンドラ */
 var mouse;
+/** 画面（各場面） */
+var _state;
+/** 描画タイミング調整用の変数：ループ開始時の時間（ミリ秒） */
+var _loopStartMsc;
+/** 描画タイミング調整用の変数：ループ終了時の時間（ミリ秒） */
+var _loopEndMsc;
 
 var isSystemBlack = false;
 var systemAlpha = 0;
@@ -55,27 +55,27 @@ function init() {
     systemCanvas.addEventListener("contextmenu", mouse.mouseClick, false);
 
     // 初期画面を設定
-    // state = new CircleState();
-    state = new TitleState();
-    state.init();
+    // _state = new CircleState();
+    _state = new TitleState();
+    _state.init();
 }
 
 /**
  * メインループ
  */
 function mainLoop() {
-    loopStartMsc = Date.now();
+    _loopStartMsc = Date.now();
     
-    if (FRAME_MSEC < (loopStartMsc - loopEndMsc)) {
+    if (FRAME_MSEC < (_loopStartMsc - _loopEndMsc)) {
 
         if (isSystemBlack) {
             systemAlpha += 0.2;
             system.globalAlpha = systemAlpha;
             system.fillRect(0, 0, WIDTH, HEIGHT);
             if (1.0 <= systemAlpha) {
-                var tmpState = eval("new " + nextStateName + "();");
+                let tmpState = eval("new " + nextStateName + "();");
                 tmpState.init();
-                state = tmpState;
+                _state = tmpState;
                 isSystemBlack = false;
                 isSystemBlackClear = true;
                 systemAlpha = 1.0;
@@ -97,14 +97,14 @@ function mainLoop() {
         // 画面を初期化
         front.clearRect(0, 0, WIDTH, HEIGHT);
         // 描画
-        state.draw();
+        _state.draw();
         // 状態を更新
-        state.run();
+        _state.run();
         // 検知したマウスイベントを無効化
         mouse.reset();
 
         // 描画間隔調整のための処理
-        loopEndMsc = loopStartMsc;
+        _loopEndMsc = _loopStartMsc;
     }
     
     requestAnimationFrame(mainLoop);
@@ -113,5 +113,5 @@ function mainLoop() {
 // 画面を初期化
 init();
 // メインループ開始
-loopEndMsc = 0;
+_loopEndMsc = 0;
 requestAnimationFrame(mainLoop);

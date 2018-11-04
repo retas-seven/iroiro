@@ -13,32 +13,32 @@ class Mouse {
         this.isRight = false;
 
         // 内部用変数
-        this.eventX = 0;
-        this.eventY = 0;
-        this.isEventLeft = false;
-        this.isEventRight = false;
+        this._x = 0;
+        this._y = 0;
+        this._isLeft = false;
+        this._isRight = false;
     }
 
     /**
      * クリックイベントハンドラ
      */
     mouseClick(e) {
-        mouse.eventX = e.clientX;
-        mouse.eventY = e.clientY;
+        mouse._x = e.clientX;
+        mouse._y = e.clientY;
 
         switch (e.button) {
             case 0 :
-                // console.log("左クリック:" + mouse.isLeft + "," + mouse.isRight + "," + mouse.isEventLeft + "," + mouse.isEventRight);
-                mouse.isEventLeft = true;
+                // console.log("左クリック:" + mouse.isLeft + "," + mouse.isRight + "," + mouse._isEventLeft + "," + mouse.isEventRight);
+                mouse._isLeft = true;
                 break;
             case 2 :
-                // console.log("右クリック:" + mouse.isLeft + "," + mouse.isRight + "," + mouse.isEventLeft + "," + mouse.isEventRight);
-                mouse.isEventRight = true;
+                // console.log("右クリック:" + mouse.isLeft + "," + mouse.isRight + "," + mouse._isEventLeft + "," + mouse.isEventRight);
+                mouse._isRight = true;
                 break;
         }
 
-        // if (this.isEventLeft || this.isEventRight) {
-        //     console.log("this.isLeft:" + this.isLeft + ", this.isRight:" + this.isRight);
+        // if (this._isEventLeft || this.isEventRight) {
+        //     conso_le.log("this.isLeft:" + this.isLeft + ", this.isRight:" + this.isRight);
         // }
     }
 
@@ -46,20 +46,20 @@ class Mouse {
      * 検知したマウスイベントを外部公開用の変数に設定
      */
     update() {
-        this.x = this.eventX;
-        this.y = this.eventY;
-        this.isLeft = this.isEventLeft;
-        this.isRight = this.isEventRight;
+        this.x = this._x;
+        this.y = this._y;
+        this.isLeft = this._isLeft;
+        this.isRight = this._isRight;
 
-        // if (this.isEventLeft) {
-        //     this.isLeft = true;
+        // if (this._isEventLeft) {
+        //     this._isLeft = true;
         // }
         // if (this.isEventRight) {
         //     this.isRight = true;
         // }
 
-        // if (this.isEventLeft || this.isEventRight) {
-        //     console.log("マウス状態:" + this.isLeft + "," + this.isRight + "," + this.isEventLeft + "," + this.isEventRight);
+        // if (this._isEventLeft || this.isEventRight) {
+        //     con_sole.log("マウス状態:" + this.isLeft + "," + this.isRight + "," + this._isEventLeft + "," + this.isEventRight);
         // }
     }
 
@@ -69,11 +69,11 @@ class Mouse {
     reset() {
         if (this.isLeft) {
             this.isLeft = false;
-            this.isEventLeft = false;
+            this._isLeft = false;
         }
         if (this.isRight) {
             this.isRight = false;
-            this.isEventRight = false;
+            this._isRight = false;
         }
     }
 }

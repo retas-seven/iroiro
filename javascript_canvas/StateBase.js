@@ -6,15 +6,15 @@ class StateBase {
      * 初期化
      */
     constructor() {
-        this.isChangeStateEnd = false;
+        this._isChangeStateEnd = false;
     }
 
     changeState(stateName) {
-        if (!this.isChangeStateEnd) {
+        if (!this._isChangeStateEnd) {
             isSystemBlack = true;
             systemAlpha = 0;
             nextStateName = stateName;
-            this.isChangeStateEnd = true;
+            this._isChangeStateEnd = true;
         }
     }
 }

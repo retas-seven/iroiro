@@ -14,9 +14,9 @@ class CircleState extends StateBase {
         console.log("CircleState.init");
         
         /** 描画する円を作成 */
-        this.balls = [];
-        this.balls.push({x: 150, y: 150, dx: 6, dy: 2, radius: 50, color: "rgb(0, 255, 128)", boundCnt: 0});
-        this.balls.push({x: 350, y: 350, dx: -3, dy: -7, radius: 50, color: "rgb(0, 200, 255)", boundCnt: 0});
+        this._balls = [];
+        this._balls.push({x: 150, y: 150, dx: 6, dy: 2, radius: 50, color: "rgb(0, 255, 128)", boundCnt: 0});
+        this._balls.push({x: 350, y: 350, dx: -3, dy: -7, radius: 50, color: "rgb(0, 200, 255)", boundCnt: 0});
 
         // 背景色を設定
         back.fillStyle = 'rgb(100, 100, 0)';
@@ -27,7 +27,7 @@ class CircleState extends StateBase {
      * 描画
      */
     draw() {
-        for (let o of this.balls) {
+        for (let o of this._balls) {
             front.beginPath();
             front.fillStyle = o.color;
             front.arc(o.x, o.y, o.radius, 0, 2 * Math.PI);
@@ -39,7 +39,7 @@ class CircleState extends StateBase {
      * 状態を更新
      */
     run() {
-        for(let o of this.balls) {
+        for(let o of this._balls) {
             o.x = o.x + o.dx;
             o.y = o.y + o.dy;
 
@@ -71,13 +71,13 @@ class CircleState extends StateBase {
 
         if (mouse.isLeft) {
             console.log("RectState　左クリック");
-            this.balls[0].dx = -this.balls[0].dx;
-            this.balls[0].dy = -this.balls[0].dy;
+            this._balls[0].dx = -this._balls[0].dx;
+            this._balls[0].dy = -this._balls[0].dy;
         }
         if (mouse.isRight) {
             console.log("RectState　右クリック");
-            this.balls[1].dx = -this.balls[1].dx;
-            this.balls[1].dy = -this.balls[1].dy;
+            this._balls[1].dx = -this._balls[1].dx;
+            this._balls[1].dy = -this._balls[1].dy;
         }
     }
 }
