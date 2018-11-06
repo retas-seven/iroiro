@@ -23,31 +23,17 @@ class Mouse {
      * 左クリックイベントハンドラ
      */
     leftClick(e) {
-        mouse._x = e.clientX;
-        mouse._y = e.clientY;
+        mouse._x = e.offsetX;
+        mouse._y = e.offsetY;
         mouse._isLeft = true;
-        // switch (e.button) {
-        //     case 0 :
-        //         // console.log("左クリック:" + mouse.isLeft + "," + mouse.isRight + "," + mouse._isEventLeft + "," + mouse.isEventRight);
-        //         mouse._isLeft = true;
-        //         break;
-        //     case 2 :
-        //         // console.log("右クリック:" + mouse.isLeft + "," + mouse.isRight + "," + mouse._isEventLeft + "," + mouse.isEventRight);
-        //         mouse._isRight = true;
-        //         break;
-        // }
-
-        // if (this._isEventLeft || this.isEventRight) {
-        //     conso_le.log("this.isLeft:" + this.isLeft + ", this.isRight:" + this.isRight);
-        // }
     }
 
     /**
      * 右クリックイベントハンドラ
      */
     rightClick(e) {
-        mouse._x = e.clientX;
-        mouse._y = e.clientY;
+        mouse._x = e.offsetX;
+        mouse._y = e.offsetY;
         mouse._isRight = true;
     }
 
@@ -59,17 +45,6 @@ class Mouse {
         this.y = this._y;
         this.isLeft = this._isLeft;
         this.isRight = this._isRight;
-
-        // if (this._isEventLeft) {
-        //     this._isLeft = true;
-        // }
-        // if (this.isEventRight) {
-        //     this.isRight = true;
-        // }
-
-        // if (this._isEventLeft || this.isEventRight) {
-        //     con_sole.log("マウス状態:" + this.isLeft + "," + this.isRight + "," + this._isEventLeft + "," + this.isEventRight);
-        // }
     }
 
     /**

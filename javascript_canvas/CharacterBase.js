@@ -10,6 +10,7 @@ class CharacterBase {
         this.y = 0;
         this.width = 0;
         this.height = 0;
+        this.isEnd = false;
     }
 
     draw() {
@@ -20,7 +21,11 @@ class CharacterBase {
 
     }
 
-    onclick() {
+    leftClick() {
+
+    }
+
+    rightClick() {
 
     }
 }

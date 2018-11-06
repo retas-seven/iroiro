@@ -90,10 +90,10 @@ function mainLoop() {
         mouse.update();
         // 画面を初期化
         front.clearRect(0, 0, WIDTH, HEIGHT);
-        // 描画
-        _state.draw();
         // 状態を更新
         _state.run();
+        // 描画
+        _state.draw();
         // 検知したマウスイベントを無効化
         mouse.reset();
 

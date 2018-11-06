@@ -13,11 +13,9 @@ class CircleState extends StateBase {
         console.log("CircleState.init");
         
         /** 描画する円を作成 */
-        // this._balls = [];
-        // this._balls.push(new Circle(150, 150, 6, 2, 50, "rgb(0, 255, 128)"));
-        // this._balls.push(new Circle(350, 350, -3, -7, 50, "rgb(0, 200, 255)"));
-        this._cm.add(new Circle(150, 150, 6, 2, 50, "rgb(0, 255, 128)"));
+        this._cm.add(new Circle(0, 0, 6, 2, 50, "rgb(0, 255, 128)"));
         this._cm.add(new Circle(350, 350, -3, -7, 50, "rgb(0, 200, 255)"));
+        this._cm.add(new Circle(150, 250, 7, 3, 50, "rgb(255, 200, 0)"));
 
         // 背景色を設定
         back.fillStyle = 'rgb(100, 100, 0)';
@@ -29,9 +27,6 @@ class CircleState extends StateBase {
      */
     draw() {
         this._cm.draw();
-        // for (let o of this._balls) {
-        //     o.draw();
-        // }
     }
 
     /**
@@ -40,25 +35,20 @@ class CircleState extends StateBase {
     run() {
         this._cm.run();
 
-        if (mouse.isLeft) {
+        if (mouse.isRight) {
+            this.changeState("CircleState");
+        }
+
+        if (this._cm.characterList.length == 0) {
             this.changeState("RectState");
         }
-        // for (let o of this._balls) {
-        //     o.run();
-        //     if (3 <= o.boundCnt) {
-        //         this.changeState("RectState");
-        //     }
-        // }
 
-        // if (mouse.isLeft) {
-        //     console.log("RectState　左クリック");
-        //     this._balls[0].dx = -this._balls[0].dx;
-        //     this._balls[0].dy = -this._balls[0].dy;
-        // }
-        // if (mouse.isRight) {
-        //     console.log("RectState　右クリック");
-        //     this._balls[1].dx = -this._balls[1].dx;
-        //     this._balls[1].dy = -this._balls[1].dy;
-        // }
+        if (mouse.isLeft) {
+            console.log("RectState　左クリック");
+        }
+
+        if (mouse.isRight) {
+            console.log("RectState　右クリック");
+        }
     }
 }
