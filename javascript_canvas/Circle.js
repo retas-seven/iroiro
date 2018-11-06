@@ -42,7 +42,7 @@ class Circle {
     draw() {
         front.beginPath();
         front.fillStyle = this.color;
-        front.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
+        front.arc(this.x + this.radius, this.y + this.radius, this.radius, 0, 2 * Math.PI);
         front.fill();
     }
 }
