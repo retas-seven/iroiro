@@ -44,11 +44,11 @@ class CircleState extends StateBase {
         }
 
         if (mouse.isLeft) {
-            console.log("RectState　左クリック");
+            console.log("CircleState　左クリック");
         }
 
         if (mouse.isRight) {
-            console.log("RectState　右クリック");
+            console.log("CircleState　右クリック");
         }
     }
 }
