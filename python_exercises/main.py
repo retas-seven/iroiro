@@ -1,14 +1,13 @@
 import sys
 import json
 import requests
-# import pprint
 
 
 class BookRetrievalService:
 
     def book_retrieval(self, isbn_list):
         '''
-        書籍情報を取得しファイル出する
+        書籍情報を取得しファイルに出力する
         '''
         # 書籍情報を取得
         book_list = self.__request_openbd(isbn_list)
@@ -36,7 +35,7 @@ class BookRetrievalService:
 
         # ステータスチェック
         if response.status_code != requests.codes.ok:
-            resopnse.raise_for_status()
+            response.raise_for_status()
         
         # APIから返却された書籍情報を取得
         book_list = json.loads(response.content)
@@ -60,7 +59,7 @@ class BookRetrievalService:
             # f.write(pprint.pformat(edited_book))
             f.write('\n')
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     # ０番目はモジュール名のため削除する
     del sys.argv[0]
 
