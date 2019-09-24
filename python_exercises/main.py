@@ -1,18 +1,20 @@
+import sys
 import json
 import requests
 
 
 class BookRetrievalService:
 
-    def book_retrieval(self, isbn):
-        # 書籍情報を取得
-        book_info = self.__request_openbd(isbn)
+    def book_retrieval(self, isbnList):
+        for isbn in isbnList:
+            # 書籍情報を取得
+            book_info = self.__request_openbd(isbn)
 
-        # 書籍情報を編集
-        edit_book_info = self.__edit_book_info(book_info)
+            # 書籍情報を編集
+            edit_book_info = self.__edit_book_info(book_info)
 
-        # 書籍情報を出力
-        self.__output_book_info(isbn, edit_book_info)
+            # 書籍情報を出力
+            self.__output_book_info(isbn, edit_book_info)
 
     def __request_openbd(self, isbn):
         '''
@@ -55,7 +57,13 @@ class BookRetrievalService:
             f.write('\n')
 
 if __name__ == "__main__":
-    BookRetrievalService().book_retrieval('9784033213804')
+    # ０番目はモジュール名のため削除する
+    del sys.argv[0]
+
+    # コマンドラインでISBNが指定されなかった場合、サンプルのISBNを使用する
+    isbnList = sys.argv or ['9784033213804']
+
+    BookRetrievalService().book_retrieval(isbnList)
     print('終了しました！')
 
     
