@@ -1,3 +1,3 @@
 ■参考書
 CSSグリッドレイアウト　デザインブック
-https://book.mynavi.jp/ec/products/detail/id=90633
+https://ebisu.com/css-grid-layout-designbook/
