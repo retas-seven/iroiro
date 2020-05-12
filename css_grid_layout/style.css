@@ -93,10 +93,26 @@ body {
 	grid-row: 7;
 	justify-self: center;
 	align-self: center;
+	quotes: '“' '”';
+	display: grid;
+	grid-auto-flow: column;
+	grid-column-gap: 5px;
 	margin-left: 30px;
 	font-size: 1.25em;
 	line-height: 1.5;
 	text-align: center;
+}
+.post-catch::before {
+	content: open-quote;
+}
+.post-catch::after {
+	content: close-quote;
+}
+.post-catch::before,
+.post-catch::after {
+	color: #aaa;
+	font-size: 2em;
+	font-weight: 900;
 }
 /* 文章02 */
 .post-text02 {
