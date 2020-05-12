@@ -122,6 +122,27 @@ body {
 .post-sns {
 	grid-column: 5;
 	grid-row: 8 / 13;
+	justify-self: end;
+	align-self: center;
+}
+.post-sns ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: grid;
+	grid-row-gap: 10px;
+}
+.post-sns a {
+	font-size: 1.5em;
+	color: #aaa;
+	text-decoration: none;
+	text-align: center;
+	border: solid 1px #aaa;
+	border-radius: 50%;
+	display: block;
+	width: 2em;
+	height: 2em;
+	line-height: 2em;
 }
 /* マーク画像 */
 .post::after {
