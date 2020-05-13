@@ -171,3 +171,20 @@ body {
 	content: url(img/anchor.svg);
 	opacity: 0.15;
 }
+
+/* ##### 画面の横幅1000ピクセル以上 ##### */
+@media (min-width: 1000px) {
+	.post {
+		width: 1000px;
+		box-sizing: border-box;
+		margin: auto;
+		font-size: 20px;
+	}
+}
+
+/* ##### 画面の横幅769〜999ピクセル ##### */
+@media (min-width: 769px) and (max-width: 999px) {
+	.post {
+		font-size: calc(16px + 4 * (100vw - 768px) / 232);
+	}
+}
