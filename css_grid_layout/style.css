@@ -188,3 +188,81 @@ body {
 		font-size: calc(16px + 4 * (100vw - 768px) / 232);
 	}
 }
+
+/* ##### 画面の横幅767ピクセル以下 ##### */
+@media (max-width: 767px) {
+	/* html * {
+		border: solid 1px #aaa
+	} */
+	.post {
+		grid-template-columns: none;
+		grid-template-rows: none;
+		grid-row-gap: 20px;
+		padding: 20px;
+		font-size: 14.4px;
+	}
+	.post > *,
+	.post::after {
+		grid-column: auto;
+		grid-row: auto;
+		/* border: solid 1px #aaa; */
+	}
+	/* タイトル */
+	.post-title {
+		grid-column: 1;
+		grid-row: 1;
+		word-break: keep-all;
+	}
+	/* マーク画像 */
+	.post::after {
+		grid-column: 1;
+		grid-row: 1;
+		justify-self: end;
+		margin-bottom: -20px;
+	}
+	/* サブタイトル */
+	.post-sub {
+		grid-column: 1;
+		grid-row: 2;
+		font-size: 24px;
+	}
+	/* 日付 */
+	.post-date {
+		grid-column: 1;
+		grid-row: 2;
+		align-self: end;
+	}
+	/* リード文 */
+	.post-lead {
+		font-size: 16px;
+	}
+	/* 画像01 */
+	.post-fig01 {
+		margin-left: -20px;
+		margin-right: -20px;;
+	}
+	/* キャッチコピー */
+	.post-catch {
+		margin-left: 0;
+		margin-top: -35px;
+		/* justify-self: end; */
+		background: rgba(255,255,255,0.6);
+		box-shadow: 0 0 10px 10px rgba(255,255,255,0.6);
+		border-radius: 10px;
+	}
+	/* 文章01 & 文章02 */
+	.post-text01,
+	.post-text02 {
+		font-size: 15px;
+	}
+	/* SNSメニュー */
+	.post-sns {
+		justify-self: center;
+	}
+
+	.post-sns ul {
+		grid-auto-flow: column;
+		grid-column-gap: 20px;
+	}
+}
+
