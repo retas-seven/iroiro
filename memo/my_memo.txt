@@ -1,21 +1,3 @@
-test
-testXXXXXX
-XXX
-YYY
-CCC
-
-123
-111
-456
-222
-789
-101112
-
-abc def ghi
-one two three
-jkl mno
-four five six
-
 230917
 111111
 22223333
